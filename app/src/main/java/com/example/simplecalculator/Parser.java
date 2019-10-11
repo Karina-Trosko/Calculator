@@ -14,7 +14,7 @@ public final class Parser {
 
     private static ArrayList<Pattern> tokensList = new ArrayList<Pattern>(Arrays.asList(Pattern.compile("^[0-9]+(\\.[0-9]+)?"), Pattern.compile("^\\+"), Pattern.compile("^\\*"), Pattern.compile("^\\-"), Pattern.compile("^/"), Pattern.compile("^\\("), Pattern.compile("^\\)")));
 
-    public static ArrayList<String> ParseBySpace(String str) {
+    public static ArrayList<String> ParseBySpace(String str) { // TODO remove unused method
         String[] splitStr = str.split(" ");
         ArrayList<String> list = new ArrayList<String>(Arrays.asList(splitStr));
         list.removeAll(Arrays.asList("", null));
@@ -24,7 +24,7 @@ public final class Parser {
     public static ArrayList<String> Parse(String str) {
         ArrayList<String> input = new ArrayList<String>();
         boolean found = false;
-        String garbage = "";
+        String garbage = ""; //TODO delete unused variable
         while (str.length() > 0) {
             found = false;
             for (Pattern p : tokensList) {

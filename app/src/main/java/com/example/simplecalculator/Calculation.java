@@ -7,11 +7,11 @@ public final class Calculation {
     }
 
     public static double CalculateExpression(String str) {
-        double result = 0.0;
-        // ArrayList<String> expression = Parser.ParseBySpace(str);
+        double result = 0.0; //TODO need remove unused variables
+        // ArrayList<String> expression = Parser.ParseBySpace(str); //TODO remove unused code
         ArrayList<String> expression = Parser.Parse(str);
 
-        if (expression.contains("(") && expression.contains(")"))
+        if (expression.contains("(") && expression.contains(")")) //TODO "(" and ")" need extract to constants
             return CalculateExpressionWithBrackets(expression);
         else return CalculateSimpleExpression(expression);
     }
@@ -46,11 +46,11 @@ public final class Calculation {
 
     private static double CalculateSimpleExpression(ArrayList<String> expr) {
         double result = 0.0;
-        while (expr.contains("*") || expr.contains("/")) {
+        while (expr.contains("*") || expr.contains("/")) { //TODO "*" and "/" extract to constants
             double res = 0.0;
             int index = expr.indexOf("*");
             if (index != -1) {
-if(expr.size()==2)
+if(expr.size()==2) //TODO reformat code
 {
     res = Multi(Double.parseDouble(expr.get(1)), 1);
     ReplaceByCalculationResult(res, expr, 0, 2);
@@ -102,7 +102,7 @@ else{
             }
         }
 
-        result = Double.parseDouble(expr.get(0));
+        result = Double.parseDouble(expr.get(0)); //TODO remove result variable and simplify to return Double.parseDouble(expr.get(0))
         return result;
 
     }

@@ -5,15 +5,15 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final class Validation {
+public abstract class Validation {
     private Validation() {
     }
 
     private static ArrayList<Pattern> tokensList = new ArrayList<Pattern>(Arrays.asList(Pattern.compile("^[\\-\\+\\*/][\\-\\+\\*/]+"),Pattern.compile("[\\-\\+\\*/]$"),Pattern.compile("[\\-\\+\\*/]\\)")));
 
 
-    public static Boolean IsValid(String str) {
-        if (IsValidContent(str) && IsEnoughBrackets(str) && IsCorrectExpression(str)) {
+    public static Boolean IsValid(String str) { //TODO name of method start from lowerCase
+        if (IsValidContent(str) && IsEnoughBrackets(str) && IsCorrectExpression(str)) { //TODO Studio warning about possible simplified  return IsValidContent(str) && IsEnoughBrackets(str) && IsCorrectExpression(str);
             return true;
         } else {
             return false;
@@ -36,9 +36,9 @@ public final class Validation {
 
     private static Boolean IsCorrectExpression(String str) {
         boolean found = false;
-        String garbage = "";
+        String garbage = ""; //TODO not used
         while (str.length() > 0) {
-            found = false;
+            found = false; //TODO redundant
             for (Pattern p : tokensList) {
                 Matcher m = p.matcher(str);
                 if (m.find()) {
