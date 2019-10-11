@@ -9,7 +9,7 @@ public final class Validation {
     private Validation() {
     }
 
-    private static ArrayList<Pattern> tokensList = new ArrayList<Pattern>(Arrays.asList(Pattern.compile("^[\\-\\+\\*/][\\-\\+\\*/]+")));
+    private static ArrayList<Pattern> tokensList = new ArrayList<Pattern>(Arrays.asList(Pattern.compile("^[\\-\\+\\*/][\\-\\+\\*/]+"),Pattern.compile("[\\-\\+\\*/]$"),Pattern.compile("[\\-\\+\\*/]\\)")));
 
 
     public static Boolean IsValid(String str) {
